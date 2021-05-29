@@ -6,32 +6,38 @@ const todoList = document.querySelector('.todo-list');
 
 todoBtn.addEventListener('click', function(e) {
     e.preventDefault();
-    // console.log('clicked');
+    const inputTask = input.value;
 
-    // Create div element
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add('todo');
+    if (inputTask == "") {
+        alert('Please add a task');
+    } else {
+        // Create div element
+        const todoDiv = document.createElement('div');
+        todoDiv.classList.add('todo');
 
-    const todoLi = document.createElement('li');
-    todoLi.innerText = input.value;
-    todoLi.classList.add('.todo-item');
+        const todoLi = document.createElement('li');
+        todoLi.innerText = inputTask;
 
-    const btnCheck = document.createElement('button');
-    btnCheck.innerHTML = `<i class="fas fa-check"></i>`;
-    btnCheck.classList.add('check');
+        todoLi.classList.add('.todo-item');
 
-    const btnTrash = document.createElement('button');
-    btnTrash.innerHTML = `<i class="fas fa-trash"></i>`;
-    btnTrash.classList.add('trash');
+        const btnCheck = document.createElement('button');
+        btnCheck.innerHTML = `<i class="fas fa-check"></i>`;
+        btnCheck.classList.add('check');
 
-    todoDiv.append(todoLi, btnCheck, btnTrash);
+        const btnTrash = document.createElement('button');
+        btnTrash.innerHTML = `<i class="fas fa-trash"></i>`;
+        btnTrash.classList.add('trash');
 
-    // Appending div into todo list
-    todoList.appendChild(todoDiv);
+        todoDiv.append(todoLi, btnCheck, btnTrash);
 
-    //Reset the input field
+        // Appending div into todo list
+        todoList.appendChild(todoDiv);
 
-    input.value = "";
+        //Reset the input field
+
+        input.value = "";
+    }
+
 });
 
 todoList.addEventListener('click', function(e) {
@@ -49,7 +55,7 @@ todoList.addEventListener('click', function(e) {
         div.classList.add('completed');
         target.remove();
     }
-})
+});
 
 // Your task is to check
 // whether an user is trying to add 
