@@ -39,7 +39,11 @@ todoList.addEventListener('click', function(e) {
 
     if (target.classList[0] == 'trash') {
         const div = target.parentElement;
-        div.remove();
+        div.classList.add('drop-effect');
+        div.addEventListener('transitionend', function() {
+            div.remove();
+        });
+
     } else if (target.classList[0] == 'check') {
         const div = target.parentElement;
         div.classList.add('completed');
