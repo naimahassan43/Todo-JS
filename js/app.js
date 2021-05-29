@@ -13,21 +13,25 @@ todoBtn.addEventListener('click', function(e) {
     todoDiv.classList.add('todo');
 
     const todoLi = document.createElement('li');
-    todoLi.innerText = "Make content for page";
+    todoLi.innerText = input.value;
     todoLi.classList.add('.todo-item');
 
     const btnCheck = document.createElement('button');
     btnCheck.innerHTML = `<i class="fas fa-check"></i>`;
-    btnCheck.classList.add('.check');
+    btnCheck.classList.add('check');
 
     const btnTrash = document.createElement('button');
     btnTrash.innerHTML = `<i class="fas fa-trash"></i>`;
-    btnTrash.classList.add('.trash');
+    btnTrash.classList.add('trash');
 
     todoDiv.append(todoLi, btnCheck, btnTrash);
 
     // Appending div into todo list
     todoList.appendChild(todoDiv);
+
+    //Reset the input field
+
+    input.value = "";
 });
 
 
