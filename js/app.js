@@ -34,6 +34,14 @@ todoBtn.addEventListener('click', function(e) {
     input.value = "";
 });
 
+todoList.addEventListener('click', function(e) {
+    const target = e.target;
+
+    if (target.classList[0] == 'trash') {
+        const div = target.parentElement;
+        div.remove();
+    }
+})
 
 // Your task is to check
 // whether an user is trying to add 
