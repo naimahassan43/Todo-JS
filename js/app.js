@@ -1,10 +1,11 @@
-// Write Your Javascript Code here
+// Selectors
 
 const input = document.querySelector('.todo-input');
 const todoBtn = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
-todoBtn.addEventListener('click', function(e) {
+//Add Task List
+function addTask(e) {
     e.preventDefault();
     const inputTask = input.value;
 
@@ -38,9 +39,10 @@ todoBtn.addEventListener('click', function(e) {
         input.value = "";
     }
 
-});
+};
 
-todoList.addEventListener('click', function(e) {
+//Remove or Update
+function removeUpdate(e) {
     const target = e.target;
 
     if (target.classList[0] == 'trash') {
@@ -55,7 +57,12 @@ todoList.addEventListener('click', function(e) {
         div.classList.add('completed');
         target.remove();
     }
-});
+}
+
+//Event Listeners
+
+todoBtn.addEventListener('click', addTask(e));
+todoList.addEventListener('click', removeUpdate(e));
 
 // Your task is to check
 // whether an user is trying to add 
